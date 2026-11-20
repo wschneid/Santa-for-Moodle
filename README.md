@@ -42,7 +42,7 @@ const CFG = {
   infoImBlock: true,            // große Karte (true) oder schmale Leiste (false)
   sternenstaub: true,           // fallender Glitzer hinter dem Schlitten
   zeitraum: ['12-01', '12-25'], // von / bis als 'MM-TT', beide Tage inklusive
-  titel: 'Der Weihnachtsmann ist unterwegs'
+  titel: 'Santa is coming to town'
 };
 ```
 

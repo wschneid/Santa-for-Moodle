@@ -102,9 +102,9 @@ Das ist so gewollt: Er startet bei jedem Öffnen einer Seite. Wer das nicht möc
 
 Dieses Projekt steht unter der **MIT-Lizenz**.
 
-### MIT License (verbindlicher Originaltext)
+### MIT License 
 
-Copyright (c) 2026 <Wolfgang Schneider>
+Copyright (c) 2026 Wolfgang Schneider
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -126,7 +126,7 @@ SOFTWARE.
 
 ### Deutsche Übersetzung (nur zur Information)
 
-Copyright (c) 2026 <Wolfgang Schneider>
+Copyright (c) 2026 Wolfgang Schneider
 
 Hiermit wird jeder Person, die eine Kopie dieser Software und der zugehörigen
 Dokumentationsdateien (die „Software“) erhält, unentgeltlich die Erlaubnis

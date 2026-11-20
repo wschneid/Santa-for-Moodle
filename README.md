@@ -97,3 +97,54 @@ Das schadet nicht, es fliegt trotzdem nur ein Schlitten.
 **Der Flug kommt bei jedem Seitenwechsel.**
 Das ist so gewollt: Er startet bei jedem Öffnen einer Seite. Wer das nicht möchte, setzt
 `startBeimLaden: false`. Dann fliegt der Schlitten erst nach Ablauf des Intervalls oder auf Knopfdruck.
+
+## Lizenz
+
+Dieses Projekt steht unter der **MIT-Lizenz**.
+
+### MIT License (verbindlicher Originaltext)
+
+Copyright (c) 2026 <Wolfgang Schneider>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+### Deutsche Übersetzung (nur zur Information)
+
+Copyright (c) 2026 <Wolfgang Schneider>
+
+Hiermit wird jeder Person, die eine Kopie dieser Software und der zugehörigen
+Dokumentationsdateien (die „Software“) erhält, unentgeltlich die Erlaubnis
+erteilt, ohne Einschränkung mit der Software zu verfahren. Das umfasst
+insbesondere das Recht, die Software zu benutzen, zu kopieren, zu verändern,
+zusammenzuführen, zu veröffentlichen, zu verbreiten, zu unterlizenzieren
+und/oder zu verkaufen sowie Personen, denen die Software überlassen wird,
+dies ebenfalls zu gestatten. Dafür gilt folgende Bedingung:
+
+Der obige Urheberrechtsvermerk und dieser Erlaubnisvermerk müssen in allen
+Kopien oder wesentlichen Teilen der Software enthalten sein.
+
+DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNG
+BEREITGESTELLT, EINSCHLIESSLICH DER GEWÄHRLEISTUNG DER MARKTGÄNGIGKEIT, DER
+EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND DER NICHTVERLETZUNG VON RECHTEN DRITTER.
+IN KEINEM FALL HAFTEN DIE AUTOREN ODER URHEBERRECHTSINHABER FÜR ANSPRÜCHE,
+SCHÄDEN ODER SONSTIGE HAFTUNG, OB AUS VERTRAG, UNERLAUBTER HANDLUNG ODER
+ANDERWEITIG, DIE SICH AUS DER SOFTWARE, IHRER NUTZUNG ODER SONSTIGEN
+GESCHÄFTEN MIT DER SOFTWARE ERGEBEN ODER DAMIT ZUSAMMENHÄNGEN.
+
+Im Zweifel gilt der englische Originaltext.

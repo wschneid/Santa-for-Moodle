@@ -1,147 +1,353 @@
-<div id="santa-flyer" class="santa">
-    <svg width="100%" height="100%" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
-
-        <!-- Zügel -->
-        <line x1="160" y1="80" x2="260" y2="80" stroke="#a0a0a0" stroke-width="2" />
-
-        <!-- Schlitten -->
-        <g id="sleigh" transform="translate(50, 0)">
-            <path d="M10 110 L90 110 Q 110 110 110 90" stroke="#cfae06" stroke-width="4" fill="none"/>
-            <rect x="25" y="90" width="5" height="20" fill="#8B0000"/>
-            <rect x="75" y="90" width="5" height="20" fill="#8B0000"/>
-            <path d="M10 90 L100 90 L110 60 L0 60 Z" fill="#D40000"/>
-        </g>
-
-        <!-- Santa -->
-        <g id="santa" transform="translate(80, 20)">
-            <ellipse cx="25" cy="45" rx="20" ry="25" fill="#D40000"/>
-            <path d="M5 45 L45 45" stroke="black" stroke-width="4"/>
-            <rect x="20" y="43" width="10" height="5" fill="gold"/>
-            <path d="M10 25 Q 25 55 40 25" fill="white"/>
-            <circle cx="25" cy="20" r="12" fill="#ffccaa"/>
-            <path d="M10 18 L40 18 L25 -5 Z" fill="#D40000"/>
-            <circle cx="25" cy="-5" r="4" fill="white"/>
-            <rect x="10" y="15" width="30" height="5" rx="2" fill="white"/>
-        </g>
-
-        <!-- Rentier -->
-        <g id="reindeer" transform="translate(250, 0)">
-            
-            <!-- --- BEINE DER HINTEREN EBENE (Links) --- -->
-            <!-- Hinterbein Links -->
-            <path d="M25 90 L35 110 L45 125" 
-                  stroke="#6F370F" stroke-width="5" stroke-linecap="round" fill="none">
-                <animate attributeName="d" dur="0.4s" repeatCount="indefinite"
-                         values="
-                         M25 90 L35 105 L45 120; 
-                         M25 90 L25 115 L20 125; 
-                         M25 90 L15 100 L5 110; 
-                         M25 90 L30 100 L40 95; 
-                         M25 90 L35 105 L45 120"
-                />
-            </path>
-            
-            <!-- Vorderbein Links -->
-            <path d="M60 90 L75 95 L85 100" 
-                  stroke="#6F370F" stroke-width="5" stroke-linecap="round" fill="none">
-                 <animate attributeName="d" dur="0.4s" repeatCount="indefinite"
-                         values="
-                         M60 90 L75 95 L85 100;
-                         M60 90 L70 110 L65 125;
-                         M60 90 L60 115 L50 125;
-                         M60 90 L55 105 L45 110;
-                         M60 90 L75 95 L85 100"
-                />
-            </path>
-
-            <!-- KÖRPER -->
-            <rect x="15" y="60" width="50" height="30" rx="10" fill="#8B4513"/>
-            <path d="M55 65 L70 40 L90 50" stroke="#8B4513" stroke-width="12" stroke-linecap="round" fill="none"/>
-            <circle cx="85" cy="45" r="10" fill="#8B4513"/>
-            <circle cx="95" cy="45" r="3" fill="red"/>
-            
-            <!-- Geweih -->
-            <path d="M85 38 L85 20 M85 30 L95 25 M85 30 L75 25" stroke="#D2691E" stroke-width="2"/>
-
-            <!-- --- BEINE DER VORDEREN EBENE (Rechts) --- -->
-            
-            <!-- Hinterbein Rechts -->
-            <path d="M25 90 L15 100 L5 110" 
-                  stroke="#8B4513" stroke-width="5" stroke-linecap="round" fill="none">
-                <animate attributeName="d" dur="0.4s" repeatCount="indefinite"
-                         values="
-                         M25 90 L15 100 L5 110; 
-                         M25 90 L30 100 L40 95; 
-                         M25 90 L35 105 L45 120; 
-                         M25 90 L25 115 L20 125; 
-                         M25 90 L15 100 L5 110"
-                />
-            </path>
-
-            <!-- Vorderbein Rechts -->
-            <path d="M60 90 L60 115 L50 125" 
-                  stroke="#8B4513" stroke-width="5" stroke-linecap="round" fill="none">
-                <animate attributeName="d" dur="0.4s" repeatCount="indefinite"
-                         values="
-                         M60 90 L60 115 L50 125;
-                         M60 90 L55 105 L45 110;
-                         M60 90 L75 95 L85 100;
-                         M60 90 L70 110 L65 125;
-                         M60 90 L60 115 L50 125"
-                />
-            </path>
-
-        </g>
-    </svg>
-</div>
-
-<style>
-#santa-flyer {
-    position: fixed;
-    z-index: 999999;
-    pointer-events: none;
-    width: 300px;
-    height: 150px;
-    transform: scaleX(-1);
-    opacity: 0;
-}
-
-/* Aktiviert den Flug */
-#santa-flyer.run {
-    animation: santaFly 12s linear;
-    opacity: 1;
-}
-
-@keyframes santaFly {
-    0%   { left: 110vw; top: 20vh; transform: scaleX(-1) translateY(0); }
-    25%  { left: 70vw;  top: 10vh; transform: scaleX(-1) translateY(-10px); }
-    50%  { left: 30vw;  top: 25vh; transform: scaleX(-1) translateY(10px); }
-    75%  { left: -10vw; top: 15vh; transform: scaleX(-1) translateY(-5px); }
-    100% { left: -40vw; top: 20vh; transform: scaleX(-1) translateY(0); }
-}
-
-@media (max-width: 600px) {
-    #santa-flyer { width: 150px; }
-}
-</style>
-
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const santa = document.getElementById("santa-flyer");
+/*  Santa for Moodle (Weihnachtsmann-Überflug für einen Moodle-Textblock)
+    ---------------------------------------------------
+    So nutzt Du es:  → Editor auf "Einfacher Text" umschalten (unter Profil → Einstellungen → Texteditor wählen)
+    Block „Text" hinzufügen → diesen kompletten Code einfügen → speichern.
+  */
+(function () {
+  'use strict';
 
-    function startSanta() {
-        santa.classList.add("run");
-        
-        // Klasse entfernen, wenn Animation fertig ist (12s)
-        setTimeout(() => {
-            santa.classList.remove("run");
-        }, 12000);
+  /* ===== EINSTELLUNGEN ================================================ */
+  const CFG = {
+    intervallMinuten: 5,        /* alle wie viele Minuten der Schlitten erneut fliegt */
+    flugdauerSekunden: 15,      /* Dauer eines Überflugs */
+    startBeimLaden: true,       /* sofort beim Öffnen der Seite losfliegen */
+    infoImBlock: true,          /* true  = große Nachthimmel-Karte mit Mini-Schlitten,
+                                           Countdown und Knopf „Jetzt fliegen"
+                                   false = nur eine schmale Leiste mit Countdown + Knopf
+                                           (der Block bleibt sichtbar und auffindbar) */
+    sternenstaub: true,         /* fallender Glitzer hinter dem Schlitten */
+    zeitraum: ['12-01', '12-25'],  /* von/bis als 'MM-TT' (beide Tage inklusive);
+                                   außerhalb bleibt der Block unsichtbar.
+                                   null = ganzjährig fliegen */
+    titel: 'Der Weihnachtsmann ist unterwegs'
+  };
+  /* ==================================================================== */
+
+  const ID = 'sfly';
+  const me = document.currentScript;
+  const blockOf = () => (me && me.closest ? me.closest('.block') : null);
+  /* Bearbeitungsmodus: Body-Klasse „editing“ oder Bearbeiten-Menü am eigenen Block */
+  const editing = !!((document.body && document.body.classList.contains('editing')) ||
+    (blockOf() && blockOf().querySelector('.block-controls .action-menu, .block_action, [data-region="blockactions"]')));
+
+  /* Block verstecken – im Bearbeitungsmodus stattdessen Hinweis zeigen,
+     sonst ließe sich der unsichtbare Block nicht mehr bearbeiten oder löschen */
+  function hideBlock(hinweis) {
+    if (editing) {
+      if (me && me.parentNode) {
+        const n = document.createElement('div');
+        n.style.cssText = 'padding:8px 10px;border:1px dashed #8a94a6;border-radius:8px;font-size:.85em;color:#4a5263;background:#f5f7fb';
+        n.textContent = '🎅 ' + hinweis + ' (Dieser Hinweis erscheint nur im Bearbeitungsmodus.)';
+        me.parentNode.insertBefore(n, me);
+      }
+      return;
     }
+    const b = blockOf();
+    if (b) b.style.display = 'none';
+  }
 
-    // Sofort beim Laden starten
-    startSanta();
+  if (document.getElementById(ID + '-layer')) return;   /* Code steht zweimal auf der Seite */
 
-    // Alle 5 Minuten wiederholen (300.000 ms)
-    setInterval(startSanta, 300000);
-});
+  if (CFG.zeitraum) {
+    const d = new Date();
+    const heute = String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    const von = CFG.zeitraum[0], bis = CFG.zeitraum[1];
+    const drin = von <= bis ? (heute >= von && heute <= bis) : (heute >= von || heute <= bis);
+    if (!drin) {
+      const tm = s => s.split('-').reverse().join('.') + '.';
+      hideBlock('Weihnachtsmann-Flug: außerhalb des Zeitraums ' + tm(von) + '–' + tm(bis) + ' – für Besucher unsichtbar.');
+      return;
+    }
+  }
+
+  /* ---------- Zeichnung: Rentier, Schlitten, Weihnachtsmann ---------- */
+
+  function rot(vals, begin) {
+    return '<animateTransform attributeName="transform" type="rotate" values="' + vals +
+      '" dur=".6s" begin="' + begin + 's" repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".45 0 .55 1;.45 0 .55 1"/>';
+  }
+
+  /* Bein mit Hüft- und Kniegelenk; beide Gelenke drehen um ihren eigenen Nullpunkt */
+  function leg(x, y, col, up, low, begin) {
+    const a0 = up.split(';')[0], b0 = low.split(';')[0];
+    return '<g transform="translate(' + x + ' ' + y + ')"><g transform="rotate(' + a0 + ')">' + rot(up, begin) +
+      '<line x1="0" y1="0" x2="0" y2="17" stroke="' + col + '" stroke-width="6.5" stroke-linecap="round"/>' +
+      '<g transform="translate(0 17)"><g transform="rotate(' + b0 + ')">' + rot(low, begin) +
+      '<line x1="0" y1="0" x2="0" y2="14" stroke="' + col + '" stroke-width="4.6" stroke-linecap="round"/>' +
+      '<rect x="-3.2" y="12.5" width="6.4" height="5" rx="1.6" fill="#2e1b0e"/></g></g></g></g>';
+  }
+
+  /* Rentier mit Blick nach links; d = Phasenversatz des Galopps */
+  function deer(x, y, p, rudolph, d) {
+    const F = '48;-18;48', FL = '-8;-72;-8', H = '-52;22;-52', HL = '12;-58;12';
+    const far = '#54301a', near = '#7a4522';
+    const nose = rudolph
+      ? '<circle cx="-2" cy="32.5" r="11" fill="url(#' + p + 'glow)" class="sfly-glow"/>' +
+        '<circle cx="-2" cy="32.5" r="4.4" fill="#e5232b"/><circle cx="-3.3" cy="31.2" r="1.3" fill="#ff9e9e"/>'
+      : '<circle cx="-1.5" cy="32.5" r="3.6" fill="#2b1a10"/>';
+    return '<g transform="translate(' + x + ' ' + y + ')"><g class="sfly-gallop" style="animation-delay:' + d + 's">' +
+      leg(37, 63, far, F, FL, d - 0.08) + leg(83, 63, far, H, HL, d - 0.08) +
+      '<path d="M23 13 C24 3 30 -3 38 -7 M27 4 L23 -5 M32 -2 L33 -11 M35 -4 L43 -8" stroke="#a57f4f" stroke-width="2.4" stroke-linecap="round" fill="none"/>' +
+      '<ellipse cx="90" cy="54" rx="5.5" ry="3.6" transform="rotate(-25 90 54)" fill="#f3e6cf"/>' +
+      '<ellipse cx="56" cy="62" rx="34" ry="14.5" fill="url(#' + p + 'fur)"/>' +
+      '<ellipse cx="54" cy="70" rx="23" ry="5.5" fill="#e0bf94" opacity=".5"/>' +
+      '<path d="M36 60 Q25 49 20 34" stroke="#93562b" stroke-width="13" stroke-linecap="round" fill="none"/>' +
+      '<ellipse cx="24" cy="23" rx="6.5" ry="2.8" transform="rotate(-35 24 23)" fill="#7d4622"/>' +
+      '<ellipse cx="13" cy="30" rx="12.5" ry="8.8" transform="rotate(-12 13 30)" fill="#9a5d2f"/>' +
+      '<ellipse cx="4" cy="33.5" rx="6.5" ry="5.2" fill="#c08a5a"/>' +
+      '<path d="M19 22 C20 12 26 6 34 2 M23 13 L19 4 M28 7 L29 -2 M31 5 L39 1" stroke="#d2ab74" stroke-width="2.6" stroke-linecap="round" fill="none"/>' +
+      '<circle cx="12" cy="26.5" r="2" fill="#24140a"/><circle cx="12.7" cy="25.8" r=".7" fill="#fff"/>' + nose +
+      '<path d="M2 38.5 q3 2 6 0" stroke="#5b3417" stroke-width="1.2" fill="none" stroke-linecap="round"/>' +
+      '<path d="M27 51 Q30 61 41 60" stroke="#c8102e" stroke-width="4.5" fill="none" stroke-linecap="round"/>' +
+      '<circle cx="33" cy="61.5" r="3.3" fill="#f2c14e" stroke="#b8862b" stroke-width=".8"/>' +
+      '<rect x="47" y="48.5" width="7" height="27" rx="2.5" fill="#c8102e"/>' +
+      '<circle cx="50.5" cy="56" r="1.3" fill="#f2c14e"/><circle cx="50.5" cy="62" r="1.3" fill="#f2c14e"/><circle cx="50.5" cy="68" r="1.3" fill="#f2c14e"/>' +
+      leg(32, 66, near, F, FL, d) + leg(78, 66, near, H, HL, d) +
+      '</g></g>';
+  }
+
+  function star(x, y, s, delay) {
+    return '<path class="sfly-tw" style="animation-delay:' + delay + 's" d="M' + x + ' ' + (y - s) +
+      'Q' + x + ' ' + y + ' ' + (x + s) + ' ' + y + 'Q' + x + ' ' + y + ' ' + x + ' ' + (y + s) +
+      'Q' + x + ' ' + y + ' ' + (x - s) + ' ' + y + 'Q' + x + ' ' + y + ' ' + x + ' ' + (y - s) + 'Z" fill="#ffcf4d"/>';
+  }
+
+  /* Gesamtes Gespann; p = Präfix für die Verlaufs-IDs (jede Kopie braucht eigene) */
+  function craft(p) {
+    return '<svg class="sfly-svg" viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true"><defs>' +
+      '<linearGradient id="' + p + 'fur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ad6d3c"/><stop offset="1" stop-color="#7b4521"/></linearGradient>' +
+      '<radialGradient id="' + p + 'glow"><stop offset="0" stop-color="#ff5a4f" stop-opacity=".9"/><stop offset="1" stop-color="#ff5a4f" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="' + p + 'red" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ec3a3f"/><stop offset="1" stop-color="#9e1018"/></linearGradient>' +
+      '<linearGradient id="' + p + 'coat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e3282f"/><stop offset="1" stop-color="#b3151d"/></linearGradient>' +
+      '<linearGradient id="' + p + 'sack" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ad7a46"/><stop offset="1" stop-color="#6c431f"/></linearGradient>' +
+      '<linearGradient id="' + p + 'trail" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffe08a" stop-opacity=".95"/><stop offset="1" stop-color="#ffe08a" stop-opacity="0"/></linearGradient>' +
+      '</defs>' +
+      /* Glitzerspur */
+      '<path d="M412 126 Q480 124 556 92" stroke="url(#' + p + 'trail)" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+      '<path d="M410 117 Q470 111 540 80" stroke="url(#' + p + 'trail)" stroke-width="1.4" stroke-dasharray="2 7" fill="none" stroke-linecap="round"/>' +
+      star(432, 122, 5, 0) + star(456, 111, 3.5, 0.4) + star(479, 124, 4.5, 0.8) + star(501, 104, 3, 0.2) + star(523, 111, 4, 0.6) + star(546, 89, 3, 1) +
+      /* Rentiere */
+      deer(14, 44, p, true, 0) + deer(136, 48, p, false, -0.18) +
+      /* Zuggeschirr */
+      '<path d="M280 104 Q232 118 188 112 M166 111 Q118 118 66 108" stroke="#5a3317" stroke-width="2.4" fill="none" stroke-linecap="round"/>' +
+      '<circle cx="232" cy="113.5" r="2.7" fill="#f2c14e"/><circle cx="118" cy="114.5" r="2.7" fill="#f2c14e"/>' +
+      /* Schlitten mit Weihnachtsmann */
+      '<g transform="translate(262 44)">' +
+        '<rect x="117" y="-21" width="17" height="15" rx="1.5" transform="rotate(-10 125 -13)" fill="#2e8b57"/>' +
+        '<path d="M125 -22 L125 -5 M117 -14 L134 -14" transform="rotate(-10 125 -13)" stroke="#e5232b" stroke-width="3"/>' +
+        '<rect x="134" y="-15" width="13" height="13" rx="1.5" transform="rotate(12 140 -8)" fill="#3a6fd8"/>' +
+        '<path d="M140.5 -15 L140.5 -2" transform="rotate(12 140 -8)" stroke="#f2c14e" stroke-width="2.6"/>' +
+        '<path d="M110 36 Q103 12 115 -4 Q122 -13 131 -8 Q145 -13 148 2 Q153 20 147 36 Z" fill="url(#' + p + 'sack)"/>' +
+        '<path d="M118 -3 Q126 2 136 -3" stroke="#e9c27a" stroke-width="2.2" fill="none" stroke-linecap="round"/>' +
+        /* Weihnachtsmann */
+        '<path d="M57 40 Q55 6 78 2 Q99 4 101 40 Z" fill="url(#' + p + 'coat)"/>' +
+        '<rect x="57" y="26" width="44" height="7" fill="#1d1d1f"/>' +
+        '<rect x="63" y="24.5" width="9" height="10" rx="1.5" fill="none" stroke="#f2c14e" stroke-width="2"/>' +
+        '<circle cx="85" cy="-8" r="3.2" fill="#eab08f"/>' +
+        '<circle cx="76" cy="-9" r="11.5" fill="#f6c9a8"/>' +
+        '<path d="M63 -10 Q59 10 71 20 Q80 25 88 16 Q93 6 88.5 -6 Q84 -1 78 -1 Q70 -1 63 -10 Z" fill="#f8f8f8" stroke="#e2e2e2" stroke-width=".8"/>' +
+        '<circle cx="73" cy="-5" r="3.2" fill="#f4a3a0" opacity=".6"/>' +
+        '<path d="M65 -2.5 Q70.5 -7 76.5 -2.5 Q71 1.5 65 -2.5 Z" fill="#fff" stroke="#e2e2e2" stroke-width=".6"/>' +
+        '<circle cx="67.5" cy="-6.5" r="3" fill="#ec9c86"/>' +
+        '<path d="M67 -12 q2.6 -2.2 5.2 0" stroke="#3a2418" stroke-width="1.6" fill="none" stroke-linecap="round"/>' +
+        '<path d="M66 -16 q3.5 -2.4 7.5 -.4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+        '<g transform="rotate(0 76 -20)">' +
+          '<animateTransform attributeName="transform" type="rotate" values="0 76 -20;5 76 -20;0 76 -20" dur="1.8s" repeatCount="indefinite" calcMode="spline" keyTimes="0;.5;1" keySplines=".45 0 .55 1;.45 0 .55 1"/>' +
+          '<path d="M64 -20 Q66 -41 84 -41 Q100 -40 110 -27 Q106 -22.5 101 -24.5 Q94 -30 89 -20 Z" fill="url(#' + p + 'red)"/>' +
+          '<circle cx="111.5" cy="-25.5" r="5.8" fill="#fff"/>' +
+        '</g>' +
+        '<rect x="61.5" y="-23" width="30" height="7.5" rx="3.75" fill="#fff"/>' +
+        /* Schlittenkasten */
+        '<path d="M30 68 L134 68 Q150 68 152 50 L156 12 Q157 0 147 1 Q138 2 140 12 L137 36 L46 36 Q36 36 32 28 Q27 19 18 22 Q9 26 12 40 Q16 58 30 68 Z" fill="url(#' + p + 'red)"/>' +
+        '<path d="M18 22 Q27 19 32 28 Q36 36 46 36 L137 36 M140 12 Q138 2 147 1 Q157 0 156 12" stroke="#f2c14e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>' +
+        '<path d="M50 54 q10 -9 20 0 t20 0 t20 0 t20 0" stroke="#f2c14e" stroke-width="2" fill="none" stroke-linecap="round" opacity=".9"/>' +
+        '<circle cx="40" cy="50" r="2.2" fill="#f2c14e"/><circle cx="140" cy="54" r="2.2" fill="#f2c14e"/>' +
+        /* Kufe */
+        '<path d="M52 68 L50 86 M126 68 L128 86" stroke="#d9a62e" stroke-width="3.5" stroke-linecap="round"/>' +
+        '<path d="M156 86 L40 86 Q16 86 10 74 Q6 63 16 61 Q23 60 22 67" stroke="#f2c14e" stroke-width="4" fill="none" stroke-linecap="round"/>' +
+      '</g>' +
+      /* Zügel, dann der Arm darüber, damit die Hand sie hält */
+      '<path d="M302 67 Q236 96 170 108 Q108 116 48 104" stroke="#8b5a2b" stroke-width="1.5" fill="none" stroke-linecap="round"/>' +
+      '<g transform="translate(262 44)">' +
+        '<path d="M72 8 Q58 10 46 20" stroke="url(#' + p + 'coat)" stroke-width="9.5" fill="none" stroke-linecap="round"/>' +
+        '<circle cx="47.5" cy="19.5" r="5" fill="#fff"/>' +
+        '<circle cx="42" cy="22.5" r="5.2" fill="#1f5f3a"/>' +
+      '</g>' +
+    '</svg>';
+  }
+
+  /* ---------- Stile (alle auf #sfly-… beschränkt) ---------- */
+
+  const S = '#' + ID + '-layer', C = '#' + ID + '-card';
+  const css =
+    S + '{position:fixed;top:0;left:0;right:0;bottom:0;z-index:2147483000;pointer-events:none;overflow:hidden;display:none}' +
+    S + '.is-on{display:block}' +
+    S + ' .sfly-x{position:absolute;left:0;top:0;width:clamp(170px,34vw,440px);visibility:hidden}' +
+    S + '.is-flying .sfly-x{visibility:visible;animation:sfly-x var(--sfly-dur) linear both}' +
+    S + '.is-flying .sfly-y{animation:sfly-y var(--sfly-dur) ease-in-out both}' +
+    S + '.is-flying .sfly-tilt{animation:sfly-tilt var(--sfly-dur) ease-in-out both}' +
+    S + ' .sfly-svg{display:block;width:100%;height:auto;max-width:none;overflow:visible;filter:drop-shadow(0 8px 10px rgba(8,18,48,.3));animation:sfly-bob 2.4s ease-in-out infinite alternate}' +
+    S + ' .sfly-dust{position:absolute;display:block;width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);border-radius:50%;' +
+      'background:radial-gradient(circle,#fff6cf 0 22%,#ffc93c 46%,rgba(255,190,40,0) 72%);animation:sfly-dust 1.6s ease-out forwards}' +
+    S + ' .sfly-gallop,' + C + ' .sfly-gallop{animation:sfly-gallop .6s ease-in-out infinite}' +
+    S + ' .sfly-glow,' + C + ' .sfly-glow{animation:sfly-glow 1.2s ease-in-out infinite alternate}' +
+    S + ' .sfly-tw,' + C + ' .sfly-tw{animation:sfly-tw 1.1s ease-in-out infinite alternate}' +
+    '@keyframes sfly-x{0%{transform:translateX(110vw)}25%{transform:translateX(70vw)}50%{transform:translateX(30vw)}75%{transform:translateX(-10vw)}100%{transform:translateX(min(-40vw,calc(-100% - 10px)))}}' +
+    '@keyframes sfly-y{0%{transform:translateY(20vh)}25%{transform:translateY(calc(10vh - 10px))}50%{transform:translateY(calc(25vh + 10px))}75%{transform:translateY(calc(15vh - 5px))}100%{transform:translateY(20vh)}}' +
+    '@keyframes sfly-tilt{0%,25%,50%,75%,100%{transform:rotate(0deg)}12.5%{transform:rotate(4deg)}37.5%{transform:rotate(-4deg)}62.5%{transform:rotate(3deg)}87.5%{transform:rotate(-2deg)}}' +
+    '@keyframes sfly-bob{from{transform:translateY(-3px)}to{transform:translateY(3px)}}' +
+    '@keyframes sfly-gallop{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}' +
+    '@keyframes sfly-glow{from{opacity:.35}to{opacity:1}}' +
+    '@keyframes sfly-tw{from{opacity:.15}to{opacity:1}}' +
+    '@keyframes sfly-dust{0%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}' +
+    /* Karte im Block */
+    C + '{position:relative;overflow:hidden;padding:12px 14px 14px;border-radius:14px;color:#fff;line-height:1.35;text-align:left;' +
+      'background-color:#13244d;background-image:' +
+      'radial-gradient(circle at 88% 16%,#fff3cf 0 8px,rgba(255,243,207,.28) 9px,rgba(255,243,207,0) 24px),' +
+      'radial-gradient(circle at 10% 18%,#fff 0 1.2px,transparent 2px),radial-gradient(circle at 32% 8%,#fff 0 1px,transparent 1.8px),' +
+      'radial-gradient(circle at 55% 26%,#fff 0 1.3px,transparent 2px),radial-gradient(circle at 72% 9%,#fff 0 .9px,transparent 1.6px),' +
+      'radial-gradient(circle at 22% 46%,#fff 0 .9px,transparent 1.6px),radial-gradient(circle at 94% 52%,#fff 0 1px,transparent 1.8px),' +
+      'linear-gradient(165deg,#0c1836 0%,#1b356c 65%,#2b4c88 100%)}' +
+    C + ' .sfly-mini{max-width:270px;margin:2px auto 8px;transition:opacity .7s ease,transform .7s ease}' +
+    C + '.is-away .sfly-mini{opacity:0;transform:translateX(-40px)}' +
+    C + '.is-compact{padding:6px 8px 6px 12px;border-radius:10px}' +
+    C + '.is-compact .sfly-mini{display:none}' +
+    C + '.is-compact .sfly-txt{flex-basis:120px}' +
+    C + '.is-compact .sfly-t{font-size:.88em}' +
+    C + '.is-compact .sfly-s{margin-top:0;font-size:.8em}' +
+    C + '.is-compact .sfly-btn{min-height:36px;padding:6px 12px;font-size:.82em}' +
+    C + ' .sfly-mini .sfly-svg{display:block;width:100%;height:auto;max-width:none;overflow:visible;animation:sfly-bob 2.4s ease-in-out infinite alternate}' +
+    C + ' .sfly-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}' +
+    C + ' .sfly-txt{flex:1 1 140px;min-width:0}' +
+    C + ' .sfly-t{display:block;font-weight:700;font-size:.98em;color:#fff}' +
+    C + ' .sfly-s{display:block;margin-top:2px;font-size:.86em;color:#d6e0f5;font-variant-numeric:tabular-nums}' +
+    C + ' .sfly-btn{flex:0 0 auto;min-height:44px;padding:8px 16px;border:0;border-radius:999px;background:#f2c14e;color:#1b1b1b;' +
+      'font:inherit;font-weight:700;font-size:.9em;line-height:1.2;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.25)}' +
+    C + ' .sfly-btn:hover{background:#ffd36b}' +
+    C + ' .sfly-btn:focus-visible{outline:3px solid #fff;outline-offset:2px}' +
+    C + ' .sfly-btn:disabled{opacity:.55;cursor:default}';
+
+  const style = document.createElement('style');
+  style.id = ID + '-style';
+  style.textContent = css;
+  (document.head || document.documentElement).appendChild(style);
+
+  /* ---------- Flugebene direkt in <body>: entkommt Block-Schublade, overflow und transform ---------- */
+
+  const layer = document.createElement('div');
+  layer.id = ID + '-layer';
+  layer.setAttribute('aria-hidden', 'true');
+  layer.style.setProperty('--sfly-dur', CFG.flugdauerSekunden + 's');
+  layer.innerHTML = '<div class="sfly-x"><div class="sfly-y"><div class="sfly-tilt">' + craft(ID + 'a') + '</div></div></div>';
+  document.body.appendChild(layer);
+  const mover = layer.querySelector('.sfly-x');
+  const plane = layer.querySelector('svg');
+
+  /* ---------- Karte im Block ---------- */
+
+  let card = null, statusEl = null, btn = null;
+  if (me && me.parentNode) {
+    card = document.createElement('div');
+    card.id = ID + '-card';
+    if (!CFG.infoImBlock) card.className = 'is-compact';
+    card.innerHTML = (CFG.infoImBlock ? '<div class="sfly-mini">' + craft(ID + 'b') + '</div>' : '') +
+      '<div class="sfly-row"><div class="sfly-txt"><span class="sfly-t"></span><span class="sfly-s"></span></div>' +
+      '<button type="button" class="sfly-btn">Jetzt fliegen</button></div>';
+    card.querySelector('.sfly-t').textContent = CFG.titel;
+    statusEl = card.querySelector('.sfly-s');
+    btn = card.querySelector('.sfly-btn');
+    btn.addEventListener('click', function () { fly(); });
+    me.parentNode.insertBefore(card, me);
+  }
+
+  /* ---------- Ablauf ---------- */
+
+  const reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const INTERVAL = Math.max(1, CFG.intervallMinuten) * 60000;
+  let flying = false, nextAt = Date.now() + INTERVAL, endTimer = 0, offTimer = 0, rafId = 0;
+
+  function fly() {
+    if (flying || !layer.isConnected) return;
+    flying = true;
+    clearTimeout(offTimer);
+    layer.classList.remove('is-flying');
+    layer.classList.add('is-on');
+    void mover.offsetWidth;                       /* Animation von vorn beginnen */
+    layer.classList.add('is-flying');
+    if (card) card.classList.add('is-away');
+    nextAt = Date.now() + INTERVAL;
+    endTimer = setTimeout(land, CFG.flugdauerSekunden * 1000 + 500);
+    if (CFG.sternenstaub && !reduce) dust();
+    update();
+  }
+
+  function land() {
+    if (!flying) return;
+    flying = false;
+    clearTimeout(endTimer);
+    cancelAnimationFrame(rafId);
+    layer.classList.remove('is-flying');
+    offTimer = setTimeout(function () {         /* letzten Sternenstaub noch ausrieseln lassen */
+      if (flying) return;
+      layer.classList.remove('is-on');
+      layer.querySelectorAll('.sfly-dust').forEach(function (el) { el.remove(); });
+    }, 1800);
+    if (card) card.classList.remove('is-away');
+    update();
+  }
+
+  mover.addEventListener('animationend', function (e) {
+    if (e.target === mover && e.animationName === 'sfly-x') land();
+  });
+
+  function dust() {
+    let last = 0;
+    function step(t) {
+      if (!flying) return;
+      if (t - last > 70 && layer.childElementCount < 90) {
+        last = t;
+        const r = plane.getBoundingClientRect();
+        if (r.right > 0 && r.left < window.innerWidth) {
+          const dot = document.createElement('span');
+          const sz = 3 + Math.random() * 7;
+          dot.className = 'sfly-dust';
+          dot.style.cssText =
+            'left:' + (r.left + r.width * (0.74 + Math.random() * 0.06)).toFixed(1) + 'px;' +
+            'top:' + (r.top + r.height * (0.66 + Math.random() * 0.14)).toFixed(1) + 'px;' +
+            '--s:' + sz.toFixed(1) + 'px;--dx:' + Math.round(Math.random() * 60 - 10) + 'px;--dy:' + Math.round(30 + Math.random() * 60) + 'px';
+          dot.addEventListener('animationend', function () { dot.remove(); });
+          layer.appendChild(dot);
+        }
+      }
+      rafId = requestAnimationFrame(step);
+    }
+    rafId = requestAnimationFrame(step);
+  }
+
+  function update() {
+    if (!statusEl) return;
+    btn.disabled = flying;
+    if (flying) { statusEl.textContent = 'Gerade unterwegs – schau nach oben!'; return; }
+    if (reduce) { statusEl.textContent = 'Automatischer Flug aus (reduzierte Bewegung)'; return; }
+    const s = Math.max(0, Math.ceil((nextAt - Date.now()) / 1000));
+    statusEl.textContent = 'Nächster Flug in ' + Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+  }
+
+  /* Takt: jede Sekunde Countdown; Flug nur bei sichtbarem Tab (sonst sofort nach Rückkehr) */
+  const ticker = setInterval(function () {
+    if (!layer.isConnected) { clearInterval(ticker); return; }
+    if (!flying && !reduce && !document.hidden && Date.now() >= nextAt) fly();
+    update();
+  }, 1000);
+
+  function boot() {
+    if (CFG.startBeimLaden && !reduce) {
+      if (document.hidden) nextAt = Date.now(); else fly();
+    }
+    update();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
 </script>

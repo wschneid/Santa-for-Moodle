@@ -10,7 +10,7 @@ geflogen wird nur vom **1. bis 25. Dezember**.
 
 ## Funktionen
 
-- Flug beim Öffnen der Seite, danach **alle 5 Minuten** erneut, jeweils **12 Sekunden** lang
+- Flug beim Öffnen der Seite, danach **alle 5 Minuten** erneut, jeweils **15 Sekunden** lang
 - Der Flug liegt über der ganzen Seite. Er fängt keine Klicks ab und stört niemanden beim Arbeiten.
 - Sichtbar auch dann, wenn die Block-Leiste rechts zugeklappt ist
 - **Zeitraum:** Außerhalb vom 1. bis 25. Dezember fliegt nichts, und Besucher sehen den Block nicht.
@@ -25,7 +25,11 @@ geflogen wird nur vom **1. bis 25. Dezember**.
 2. Seite öffnen (Kurs, Startseite oder Dashboard) → **Bearbeiten einschalten**.
 3. **Block hinzufügen → „Text“**.
 4. Den **kompletten Code** kopieren und in einen Textblock einfügen.
-   Ein Blocktitel ist optional.
+   Am sichersten über die Datei [`Santa Script`](Santa%20Script) und dort den Knopf
+   **„Copy raw file“** (Symbol mit zwei Blättern oben rechts über dem Code).
+   **Die letzte Zeile muss `</script>` sein.** Fehlt sie, ist die Kursseite nach dem Speichern
+   kaputt (siehe [Häufige Fragen](#häufige-fragen)).
+   Unter dem Textfeld muss **„HTML-Format“** eingestellt sein. Ein Blocktitel ist optional.
 5. Speichern. Der Schlitten startet sofort, wenn das Datum im Zeitraum liegt.
 6. Danach den Editor wieder auf den gewohnten Editor zurückstellen, falls gewünscht.
    Der gespeicherte Block bleibt erhalten, **solange man ihn nicht mit einem anderen Editor erneut bearbeitet**.
@@ -37,7 +41,7 @@ Ganz oben im Code steht der Abschnitt `EINSTELLUNGEN`. Nur dort etwas ändern:
 ```js
 const CFG = {
   intervallMinuten: 5,          // alle wie viele Minuten der Schlitten erneut fliegt
-  flugdauerSekunden: 12,        // Dauer eines Überflugs
+  flugdauerSekunden: 15,        // Dauer eines Überflugs
   startBeimLaden: true,         // sofort beim Öffnen der Seite losfliegen
   infoImBlock: true,            // große Karte (true) oder schmale Leiste (false)
   sternenstaub: true,           // fallender Glitzer hinter dem Schlitten
@@ -82,6 +86,17 @@ Umstellen: im Code `infoImBlock: true` durch `infoImBlock: false` ersetzen und s
 Den Text der Überschrift ändert man über `titel`, zum Beispiel `titel: 'Frohe Weihnachten, 7b!'`.
 
 ## Häufige Fragen
+
+**Nach dem Speichern sind alle Menüs weg, die Block-Leiste ist halb verdeckt, nichts lässt sich anklicken.**
+Fast immer wurde der Code nicht vollständig kopiert: Das schließende `</script>` am Ende fehlt.
+Dann hält der Browser den ganzen Rest der Moodle-Seite für Skript, und Menüs und Knöpfe fehlen.
+So kommt man wieder an den Block heran:
+1. Auf der kaputten Seite den Seitenquelltext öffnen (**Strg+U**, am Mac **⌥⌘U**).
+2. Mit **Strg+F** nach `bui_editid` suchen und den gefundenen Link anklicken.
+   Alternativ an die Adresse der Kursseite selbst `&bui_editid=` und die Nummer anhängen,
+   zum Beispiel `…/course/view.php?id=123&bui_editid=4567`.
+3. Es öffnet sich die Einstellungsseite des Textblocks, diesmal ohne den kaputten Block.
+   Dort den Inhalt löschen, den Code vollständig neu einfügen (letzte Zeile `</script>`) und speichern.
 
 **Der Block zeigt nichts, und es fliegt nichts.**
 Meist hat der Editor das Skript beim Speichern entfernt. Dann den Editor auf „Einfacher Text“ umstellen

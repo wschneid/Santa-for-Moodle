@@ -3,6 +3,8 @@
     ---------------------------------------------------
     So nutzt Du es:  → Editor auf "Einfacher Text" umschalten (unter Profil → Einstellungen → Texteditor wählen)
     Block „Text" hinzufügen → diesen kompletten Code einfügen → speichern.
+    WICHTIG: Bis zur allerletzten Zeile kopieren (schließendes script-Tag).
+    Fehlt sie, ist die ganze Kursseite kaputt: keine Menüs, nichts klickbar.
   */
 (function () {
   'use strict';
@@ -350,4 +352,5 @@
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();
+/* ===== ENDE – die folgende Zeile gehört dazu und muss mitkopiert werden ===== */
 </script>

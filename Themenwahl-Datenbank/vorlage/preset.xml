@@ -1,0 +1,37 @@
+<preset>
+
+<description>Themenwahl für die Gruppenarbeit „Modelle der sozialen Differenzierung“: 4 Themen mit je 5 Plätzen, ein Eintrag pro Person.</description>
+
+<settings>
+<intro></intro>
+<comments>0</comments>
+<requiredentries>0</requiredentries>
+<requiredentriestoview>0</requiredentriestoview>
+<maxentries>1</maxentries>
+<rssarticles>0</rssarticles>
+<approval>0</approval>
+<manageapproved>1</manageapproved>
+<defaultsortdir>0</defaultsortdir>
+<defaultsort>Thema</defaultsort>
+</settings>
+
+<field>
+<type>radiobutton</type>
+<name>Thema</name>
+<description>Welches Thema möchtest du in der Gruppenarbeit bearbeiten?</description>
+<required>1</required>
+<param1>Klassenmodell nach Karl Marx
+Schichtungstheorien (Dahrendorf und Geißler)
+Soziale Milieus (Sinus)
+Exklusion und Inklusion</param1>
+</field>
+
+<field>
+<type>text</type>
+<name>Wunschteam</name>
+<description>Mit wem möchtest du zusammenarbeiten? (freiwillig)</description>
+<required>0</required>
+<param1>0</param1>
+</field>
+
+</preset>
